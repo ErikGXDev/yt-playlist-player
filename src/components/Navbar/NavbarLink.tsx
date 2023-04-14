@@ -9,7 +9,7 @@ export default function NavbarLink({
 }) {
   return (
     <>
-      <div className="text-front hover:text-negative active:text-negative-dim">
+      <div className="text-front hover:text-red active:text-negative-dim">
         <Link href={href}>{children}</Link>
       </div>
     </>
