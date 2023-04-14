@@ -1,7 +1,8 @@
 import Button from "@/components/Button";
 import ButtonLink from "@/components/ButtonLink";
+import ButtonLogin from "@/components/ButtonLogin";
 import ExplorerNavbar from "@/components/Navbar/ExplorerNavbar";
-import SongItem from "@/components/demo/SongItem";
+import SongItem from "@/components/SongItem";
 
 export default function Home() {
   return (
@@ -51,10 +52,8 @@ export default function Home() {
       </div>
       <div className="flex flex-col items-center px-4">
         <div className="text-center">
-          <ButtonLink color="primary" href="/signup">
-            Sign up for free
-          </ButtonLink>
-          <p className="m-2 text-dimmer">It's free and easy to use!</p>
+          <ButtonLogin color="primary">Sign in with Google</ButtonLogin>
+          <p className="m-2 text-root-700">It's free and easy to use!</p>
         </div>
       </div>
     </>
