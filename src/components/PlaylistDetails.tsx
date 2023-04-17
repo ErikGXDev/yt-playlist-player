@@ -11,12 +11,14 @@ import { iso8601DurationToSeconds, to_h_min } from "./util/time";
 interface DetailsProps {
   active: PlaylistType;
   setPlay: Function;
+  setPlayPlaylist: Function;
   play?: PlaylistItemType;
 }
 
 export default function PlaylistDetails({
   active,
   setPlay,
+  setPlayPlaylist,
   play,
 }: DetailsProps) {
   const [userinfo, setUserinfo] = useState<FullChannel>();
@@ -61,6 +63,7 @@ export default function PlaylistDetails({
           <div
             onClick={() => {
               setPlay(item);
+              setPlayPlaylist(active);
             }}
             key={item.id}
           >

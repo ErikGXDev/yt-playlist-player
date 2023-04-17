@@ -58,6 +58,10 @@ export default function Controls({ active, play, setPlay }: ControlsType) {
     }
   }
 
+  useEffect(() => {
+    console.log(active, "- Has changed");
+  }, [play]); // <-- here put the parameter to listen
+
   function playNext() {
     if (active) playPosition((play.snippet.position + 1) % active.items.length);
   }

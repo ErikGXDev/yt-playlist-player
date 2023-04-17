@@ -3,6 +3,7 @@ import ButtonLink from "@/components/ButtonLink";
 import ButtonLogin from "@/components/ButtonLogin";
 import ExplorerNavbar from "@/components/Navbar/ExplorerNavbar";
 import SongItem from "@/components/SongItem";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -54,6 +55,14 @@ export default function Home() {
         <div className="text-center">
           <ButtonLogin color="primary">Sign in with Google</ButtonLogin>
           <p className="m-2 text-root-700">It's free and easy to use!</p>
+
+          <p>
+            By signing in you agree to the{" "}
+            <Link href="/terms" className="underline">
+              terms of service
+            </Link>
+            .
+          </p>
         </div>
       </div>
     </>

