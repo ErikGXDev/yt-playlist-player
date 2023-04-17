@@ -8,14 +8,6 @@ import { useRouter } from "next/navigation";
 export default function Page() {
   const { data } = useSession();
 
-  fetch("https://e4876485-6926-4adc-907f-70acae689849.id.repl.co/", {
-    method: "POST",
-    body: JSON.stringify(data),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-
   const { push } = useRouter();
 
   const [playlists, setPlaylists] = useState<any[]>([]);
