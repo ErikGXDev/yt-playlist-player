@@ -37,19 +37,25 @@ export default function PlaylistList({
         className={"bg-root-950 w-full md:w-72 md:min-w-[18rem] md:mb-24 mb-0"}
       >
         <div className="p-4 flex flex-col gap-2">
-          {playlists?.map((playlist, index) => (
-            <button
-              className="text-root-200 hover:text-front text-start"
-              data-index={index}
-              data-id={playlist.id}
-              key={playlist.id}
-              onClick={() => {
-                loadPlaylistView(playlist.id);
-              }}
-            >
-              {playlist.snippet.title}
-            </button>
-          ))}
+          {playlists.length > 0 ? (
+            playlists?.map((playlist, index) => (
+              <button
+                className="text-root-200 hover:text-front text-start"
+                data-index={index}
+                data-id={playlist.id}
+                key={playlist.id}
+                onClick={() => {
+                  loadPlaylistView(playlist.id);
+                }}
+              >
+                {playlist.snippet.title}
+              </button>
+            ))
+          ) : (
+            <div className="p-2">
+              <p className="text-md md:text-xl">Loading Playlists...</p>
+            </div>
+          )}
         </div>
       </div>
     </>
