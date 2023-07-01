@@ -59,7 +59,9 @@ export default function Controls({ active, play, setPlay }: ControlsType) {
   }
 
   useEffect(() => {
-    console.log(active, "- Has changed");
+    setTimeout(() => {
+      player?.playVideo();
+    }, 2000);
   }, [play]); // <-- here put the parameter to listen
 
   function playNext() {
@@ -94,7 +96,7 @@ export default function Controls({ active, play, setPlay }: ControlsType) {
       ></YouTube>
       {item && active && (
         <div className="w-full flex justify-between h-24 px-4 md:px-0">
-          <div className="flex items-center gap-4 min-w-0 w-1/2">
+          <div className="md:flex items-center gap-4 min-w-0 w-1/2 hidden">
             <img
               src={item.snippet.thumbnails.high.url}
               className="h-full w-auto aspect-video object-cover hidden md:block"
@@ -108,7 +110,7 @@ export default function Controls({ active, play, setPlay }: ControlsType) {
               </p>
             </div>
           </div>
-          <div className="flex flex-col items-center justify-center gap-1">
+          <div className="flex flex-col items-center justify-center gap-1 w-full">
             <div className="flex justify-center items-center gap-2">
               <div
                 onClick={() => {
@@ -122,7 +124,6 @@ export default function Controls({ active, play, setPlay }: ControlsType) {
               <div
                 data-state={playerState}
                 onClick={() => {
-                  console.log(player?.getCurrentTime());
                   switch (playerState) {
                     case states.paused:
                       player?.playVideo();
@@ -157,10 +158,10 @@ export default function Controls({ active, play, setPlay }: ControlsType) {
                 </ButtonRadial>
               </div>
             </div>
-            <div>
+            <div className="w-full flex justify-center">
               <input
                 type="range"
-                className="w-96 slider"
+                className="w-full max-w-xl slider"
                 value={progress}
                 max={player?.getDuration() || 10000}
                 onChange={(e) => {
@@ -171,7 +172,7 @@ export default function Controls({ active, play, setPlay }: ControlsType) {
               ></input>
             </div>
           </div>
-          <div className="w-1/2">a</div>
+          <div className="w-1/2 hidden md:block"></div>
         </div>
       )}
     </>

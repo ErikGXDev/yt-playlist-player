@@ -86,7 +86,6 @@ export default async function handler(
       part: ["contentDetails"],
       id: videoIds.join(","), // pass the video ID as a query parameter
     });
-    console.log(videosResponse);
 
     for (let index = 0; index < videosResponse.data.items.length; index++) {
       const video = videosResponse.data.items?.[index];
