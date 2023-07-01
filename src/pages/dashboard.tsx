@@ -28,7 +28,7 @@ export default function Page() {
       <div className="flex flex-col md:flex-row w-screen h-full">
         <PlaylistList loadPlaylistView={loadPlaylistView}></PlaylistList>
         <div className="w-full overflow-y-scroll bg-root-950/60 h-full md:h-auto mb-24">
-          {active && (
+          {active ? (
             <div className="mb-6">
               <PlaylistDetails
                 key={Date.now()}
@@ -37,6 +37,12 @@ export default function Page() {
                 setPlayPlaylist={setPlayPlaylist}
                 play={play}
               ></PlaylistDetails>
+            </div>
+          ) : (
+            <div className="w-full h-full flex justify-center items-center">
+              <p className="text-md md:text-xl">
+                Click on a playlist in the list to see its contents!
+              </p>
             </div>
           )}
         </div>

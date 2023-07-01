@@ -8,9 +8,8 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
-      <ExplorerNavbar />
       <div className="flex items-center flex-col">
-        <div className="font-bold text-3xl text-center w-full md:w-1/2 mb-8 px-4">
+        <div className="font-bold text-3xl text-center w-full md:w-1/2 mb-8 px-4 mt-32">
           <span className="text-negative">YouTube Playlists</span>&nbsp;
           <span>but in a</span>&nbsp;
           <span className="text-negative">Spotify</span>&nbsp;
@@ -54,15 +53,7 @@ export default function Home() {
       <div className="flex flex-col items-center px-4">
         <div className="text-center">
           <ButtonLogin color="primary">Sign in with Google</ButtonLogin>
-          <p className="m-2 text-root-700">It's free and easy to use!</p>
-
-          <p>
-            By signing in you agree to the{" "}
-            <Link href="/terms" className="underline">
-              terms of service
-            </Link>
-            .
-          </p>
+          <p className="m-2 text-root-400">It's free!</p>
         </div>
       </div>
     </>
